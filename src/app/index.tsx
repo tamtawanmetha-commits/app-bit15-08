@@ -8,9 +8,6 @@ export default function App () {
         // ใส่สไตล์ตกแต่ง
         <View style={myStyle.container}>
 
-            {/* แสดงข้อความ */}
-            <Text style={myStyle.title}>Tamtawan</Text>
-
             {/* แสดงภาพจากไฟล์ */}
             <Image 
                 source={require('@/assets/images/aum.jpg')}
@@ -19,9 +16,13 @@ export default function App () {
                     height: 200, // ศูง
                     borderRadius: 100, // ความโค้งของมุม
                     borderWidth: 10, // ความกว้างของขอบ
-                    borderColor: "#FF6347" // สีของขอบ
-             }}
-            />
+                    borderColor: "#FF6347" // สีของขอบแสดงข้อความ
+                }}
+                />
+                
+            {/* แสดงข้อความ */}
+            <Text style={myStyle.title}>Tamtawan</Text>
+
             {/* ใส่ภาพจากลิงก์ */}
             <Image
                 source={{uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe7Pc-8fmeoNrn2Zqn2UC8HANPbyH6paRSl1bGRLeZ-A&s=10"}}
