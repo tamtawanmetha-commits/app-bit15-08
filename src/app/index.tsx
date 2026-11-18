@@ -1,65 +1,116 @@
-//นำเข้่า  วิว     ข้อความ    จาก
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from 'react-native';
 
-// ส่งออก เริ่มต้น   ฟังก์.   เเอป
-export default function App () {
-    return (
+export default function App() {
+  return (
+    // View — กรอบทั้งหน้า
+    <View style={styles.container}>
+      {/* Image — รูปโปรไฟล์ */}
+      <Image
+        source={require('@/assets/images/Toomtam.jpg')}
+        style={styles.profileImage}
+      />
 
-        // ใส่สไตล์ตกแต่ง
-        <View style={myStyle.container}>
+      {/* Text — ชื่อ */}
+      <Text style={styles.nameText}>ตามตะวัน เมฑา</Text>
 
-            {/* แสดงภาพจากไฟล์ */}
-            <Image 
-                source={require('@/assets/images/aum.jpg')}
-                style={{
-                    width: 200, // กว้าง
-                    height: 200, // ศูง
-                    borderRadius: 100, // ความโค้งของมุม
-                    borderWidth: 10, // ความกว้างของขอบ
-                    borderColor: "#FF6347" // สีของขอบแสดงข้อความ
-                }}
-                />
-                
-            {/* แสดงข้อความ */}
-            <Text style={myStyle.title}>Tamtawan</Text>
+      {/* Text — คำอธิบาย */}
+      <Text style={styles.descText}>แตกกลางยังโดนเท ปัดเป๊ะเหลืออะไร</Text>
 
-            {/* ใส่ภาพจากลิงก์ */}
-            <Image
-                source={{uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe7Pc-8fmeoNrn2Zqn2UC8HANPbyH6paRSl1bGRLeZ-A&s=10"}}
-                style={{
-                    width: 200, // กว้าง
-                    height: 200, // ศูง
-                    borderRadius: 100, // ความโค้งของมุม
-                    borderWidth: 10, // ความกว้างของขอบ
-                    borderColor: "#FF1493" // สีของขอบ
-             }}
-            />
-            {/* จัดเรียงแนวนอน */}
-            <View style={{flexDirection: "row" }}>
+      {/* View — การ์ดข้อมูล */}
+      <View style={styles.cardView}>
+        <Text style={styles.cardText}>ห้อง BTI.1/5 เลขที่ 5</Text>
+        <Text style={styles.cardText}>Email: tamtawan.metha@e-tech.ac.th</Text>
+        <Text style={styles.cardText}>Phone: 064-053-9873</Text>
+      </View>
 
-                {/* fn + e  เปิดอีโมจิ */}
-                <Text>cat 🐱</Text>
-                <Text>dog 🐶</Text>
-                <Text>Duck 🦆</Text>
-                <Text>Monkey 🐒</Text>
-                <Text>Fish 🐟</Text>
-            </View>
-        </View>
-    )
+      {/* Text — หัวข้อ "ภาพกิจกรรม" */}
+      <Text style={styles.sectionTitle}>ภาพกิจกรรม</Text>
+
+      {/* View — แถวรูป */}
+      <View style={styles.imageRow}>
+        <Image
+          source={{uri:"https://images.pexels.com/photos/30924264/pexels-photo-30924264/free-photo-of-serene-ocean-view-with-blue-skies-and-waves.jpeg?cs=tinysrgb&dpr=1&w=500"}}
+          style={styles.activityImage}
+        />
+        <Image
+          source={{uri:"https://images.pexels.com/photos/33927121/pexels-photo-33927121.jpeg?cs=srgb&dl=pexels-veronika-kravchenko-2155849414-33927121.jpg&fm=jpg"}}
+          style={styles.activityImage}
+        />
+        <Image
+          source={{uri:"https://static.vecteezy.com/system/resources/thumbnails/023/619/222/small/view-of-the-beautiful-cloud-forest-and-the-quindio-wax-palms-at-the-cocora-valley-located-in-salento-in-the-quindio-region-in-colombia-photo.jpg"}}
+          style={styles.activityImage}
+        />
+      </View>
+    </View>
+  );
 }
 
- const myStyle = StyleSheet.create ({
-    container:{
-        // css บนเว็ป -> background-color
-        backgroundColor: "purple" , //สีพื้นหลัง
-        flex: 1, // ขยาย
-        paddingTop: 80, // เพิ่มช่องว่างในกล่อง
-        alignItems: "center"
-    },
-    title:{
-        color: "blue", // สีตัวอักษร
-        fontSize: 30, // ขนาด
-        fontWeight: 700, //ความหนา
-        textAlign: "center", //จัดตำแหน่งการวาง
-    }
- })
+const styles = StyleSheet.create({
+  // กรอบทั้งหน้า
+  container: {
+    flex: 1,
+    backgroundColor:'#9966FF',
+    paddingTop: 64,
+    paddingHorizontal: 24,
+    alignItems: 'center',
+  },
+  // รูปโปรไฟล์
+  profileImage: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    marginBottom: 12,
+  },
+  // ชื่อ
+  nameText: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#1a1a1a',
+    marginBottom: 4,
+    textAlign: 'center',
+  },
+  // คำอธิบาย
+  descText: {
+    fontSize: 13,
+    color: '#9966CC',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  // การ์ดข้อมูล
+  cardView: {
+    backgroundColor: '#9966CC',
+    borderRadius: 14,
+    paddingVertical: 16,
+    paddingHorizontal: 18,
+    width: '100%',
+    gap: 6,
+    marginBottom: 24,
+  },
+  // ข้อความภายในการ์ด (ห้อง / อีเมล / เบอร์)
+  cardText: {
+    fontSize: 14,
+    color: '#333333',
+    lineHeight: 20,
+  },
+  // หัวข้อ "ภาพกิจกรรม"
+  sectionTitle: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#1a1a1a',
+    alignSelf: 'flex-start',
+    marginBottom: 12,
+  },
+  // แถวรูป
+  imageRow: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
+  // รูปกิจกรรม
+  activityImage: {
+    flex: 1,
+    aspectRatio: 1,
+    borderRadius: 10,
+  },
+});
